@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CISERPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BoardMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BoardName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="BranchTab">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BranchRemark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="CasteMaster">
+          <Key>
+            <PropertyRef Name="CasteId" />
+          </Key>
+          <Property Name="CasteId" Type="int" Nullable="false" />
+          <Property Name="CasteName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CasteRemark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="CityMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="ClassMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoomNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+          <Property Name="ClassCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CIDOrder" Type="numeric" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentFamilyDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherOccupation" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherDesignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherQualification" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherIncomeMonthly" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherOfficeAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="FatherContactNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyIncomeMonthly" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyRelationship" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyGuardianName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyContactNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherOccupation" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherDesignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherQualification" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherIncomeMonthly" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherOfficeAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="MotherContactNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="StudentGenaralDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="smalldatetime" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiblingCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="SBSrNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SBStName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SBFathersName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SBClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="SBSection" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhysicallDisabledCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhyStName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhyStDetail" Type="nvarchar" MaxLength="1000" />
+          <Property Name="StLocalAddress" Type="nvarchar" MaxLength="1000" />
+          <Property Name="StLocalStateId" Type="int" />
+          <Property Name="StLocalCityId" Type="int" />
+          <Property Name="StLocalZip" Type="nvarchar" MaxLength="50" />
+          <Property Name="StPerAddress" Type="nvarchar" MaxLength="1000" />
+          <Property Name="StPerStateId" Type="int" />
+          <Property Name="StPerCityId" Type="int" />
+          <Property Name="StPerZip" Type="nvarchar" MaxLength="50" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+          <Property Name="Religion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Caste" Type="nvarchar" MaxLength="50" />
+          <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="HouseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="StudentOfficialDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfAdmiission" Type="smalldatetime" />
+          <Property Name="AdmissionForClassId" Type="int" />
+          <Property Name="SectionId" Type="int" />
+          <Property Name="GroupNa" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+          <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+          <Property Name="Medium" Type="nvarchar" MaxLength="50" />
+          <Property Name="Board" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeOFAdmision" Type="nvarchar" MaxLength="50" />
+          <Property Name="Promotion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Card" Type="nvarchar" MaxLength="50" />
+          <Property Name="HostelRequired" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransportRequired" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusLocationName" Type="nvarchar" MaxLength="100" />
+          <Property Name="WayAmount" Type="nvarchar" MaxLength="50" />
+          <Property Name="OneTwoWay" Type="nvarchar" MaxLength="50" />
+          <Property Name="VehicleType" Type="nvarchar" MaxLength="50" />
+          <Property Name="HouseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LibraryRequired" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="GuardianPassword" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StudentPreviousSchool">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="Board" Type="nvarchar" MaxLength="50" />
+          <Property Name="Medium" Type="nvarchar" MaxLength="50" />
+          <Property Name="Class" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromDate" Type="smalldatetime" />
+          <Property Name="ToDate" Type="smalldatetime" />
+          <Property Name="Marks" Type="nvarchar" MaxLength="50" />
+          <Property Name="Percentage" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Schooladdress" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+          <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="StudentSubjectAllotment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubjectAlloted" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecordDate" Type="smalldatetime" />
+          <Property Name="Medium" Type="nvarchar" MaxLength="50" />
+          <Property Name="Groupe" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="CISERPModelStoreContainer">
+          <EntitySet Name="BoardMaster" EntityType="Self.BoardMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchTab" EntityType="Self.BranchTab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CasteMaster" EntityType="Self.CasteMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CityMaster" EntityType="Self.CityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassMaster" EntityType="Self.ClassMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentFamilyDetails" EntityType="Self.StudentFamilyDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentGenaralDetail" EntityType="Self.StudentGenaralDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentOfficialDetails" EntityType="Self.StudentOfficialDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentPreviousSchool" EntityType="Self.StudentPreviousSchool" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentSubjectAllotment" EntityType="Self.StudentSubjectAllotment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CISERPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="CISERPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="BoardMasters" EntityType="CISERPModel.BoardMaster" />
+          <EntitySet Name="BranchTabs" EntityType="CISERPModel.BranchTab" />
+          <EntitySet Name="CasteMasters" EntityType="CISERPModel.CasteMaster" />
+          <EntitySet Name="CityMasters" EntityType="CISERPModel.CityMaster" />
+          <EntitySet Name="ClassMasters" EntityType="CISERPModel.ClassMaster" />
+          <EntitySet Name="CountryMasters" EntityType="CISERPModel.CountryMaster" />
+          <EntitySet Name="StateMasters" EntityType="CISERPModel.StateMaster" />
+          <EntitySet Name="Students" EntityType="CISERPModel.Student" />
+          <EntitySet Name="StudentFamilyDetails" EntityType="CISERPModel.StudentFamilyDetail" />
+          <EntitySet Name="StudentGenaralDetails" EntityType="CISERPModel.StudentGenaralDetail" />
+          <EntitySet Name="StudentOfficialDetails" EntityType="CISERPModel.StudentOfficialDetail" />
+          <EntitySet Name="StudentPreviousSchools" EntityType="CISERPModel.StudentPreviousSchool" />
+          <EntitySet Name="StudentSubjectAllotments" EntityType="CISERPModel.StudentSubjectAllotment" />
+        </EntityContainer>
+        <EntityType Name="BoardMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BoardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="BranchTab">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="BranchName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BranchRemark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CasteMaster">
+          <Key>
+            <PropertyRef Name="CasteId" />
+          </Key>
+          <Property Name="CasteId" Type="Int32" Nullable="false" />
+          <Property Name="CasteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CasteRemark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CityMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="ClassMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoomNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+          <Property Name="ClassCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CIDOrder" Type="Decimal" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentFamilyDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StEnRCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="SrNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherQualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherIncomeMonthly" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherOfficeAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FatherContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyIncomeMonthly" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyRelationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyGuardianName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherQualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherIncomeMonthly" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherOfficeAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MotherContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Withdrwal" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentGenaralDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StEnRCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="SrNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiblingCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SBSrNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SBStName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SBFathersName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SBClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SBSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicallDisabledCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhyStName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhyStDetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="StLocalAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="StLocalStateId" Type="Int32" />
+          <Property Name="StLocalCityId" Type="Int32" />
+          <Property Name="StLocalZip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StPerAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="StPerStateId" Type="Int32" />
+          <Property Name="StPerCityId" Type="Int32" />
+          <Property Name="StPerZip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Caste" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Withdrwal" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentOfficialDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StEnRCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="SrNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfAdmiission" Type="DateTime" Precision="0" />
+          <Property Name="AdmissionForClassId" Type="Int32" />
+          <Property Name="SectionId" Type="Int32" />
+          <Property Name="GroupNa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+          <Property Name="Withdrwal" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Medium" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Board" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOFAdmision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Promotion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Card" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HostelRequired" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransportRequired" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusLocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WayAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OneTwoWay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VehicleType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LibraryRequired" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GuardianPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentPreviousSchool">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StEnRCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="SrNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="Board" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Medium" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="Marks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Percentage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Schooladdress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+          <Property Name="Withdrwal" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentSubjectAllotment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectAlloted" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SessionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="0" />
+          <Property Name="Medium" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Groupe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CISERPModelStoreContainer" CdmEntityContainer="CISERPEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CISERPModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoardMasters">
+            <EntityTypeMapping TypeName="CISERPModel.BoardMaster">
+              <MappingFragment StoreEntitySet="BoardMaster">
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BoardName" ColumnName="BoardName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchTabs">
+            <EntityTypeMapping TypeName="CISERPModel.BranchTab">
+              <MappingFragment StoreEntitySet="BranchTab">
+                <ScalarProperty Name="BranchRemark" ColumnName="BranchRemark" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CasteMasters">
+            <EntityTypeMapping TypeName="CISERPModel.CasteMaster">
+              <MappingFragment StoreEntitySet="CasteMaster">
+                <ScalarProperty Name="CasteRemark" ColumnName="CasteRemark" />
+                <ScalarProperty Name="CasteName" ColumnName="CasteName" />
+                <ScalarProperty Name="CasteId" ColumnName="CasteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CityMasters">
+            <EntityTypeMapping TypeName="CISERPModel.CityMaster">
+              <MappingFragment StoreEntitySet="CityMaster">
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassMasters">
+            <EntityTypeMapping TypeName="CISERPModel.ClassMaster">
+              <MappingFragment StoreEntitySet="ClassMaster">
+                <ScalarProperty Name="CIDOrder" ColumnName="CIDOrder" />
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryMasters">
+            <EntityTypeMapping TypeName="CISERPModel.CountryMaster">
+              <MappingFragment StoreEntitySet="CountryMaster">
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateMasters">
+            <EntityTypeMapping TypeName="CISERPModel.StateMaster">
+              <MappingFragment StoreEntitySet="StateMaster">
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="CISERPModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentFamilyDetails">
+            <EntityTypeMapping TypeName="CISERPModel.StudentFamilyDetail">
+              <MappingFragment StoreEntitySet="StudentFamilyDetails">
+                <ScalarProperty Name="Withdrwal" ColumnName="Withdrwal" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="MotherEmail" ColumnName="MotherEmail" />
+                <ScalarProperty Name="MotherContactNo" ColumnName="MotherContactNo" />
+                <ScalarProperty Name="MotherOfficeAddress" ColumnName="MotherOfficeAddress" />
+                <ScalarProperty Name="MotherIncomeMonthly" ColumnName="MotherIncomeMonthly" />
+                <ScalarProperty Name="MotherQualification" ColumnName="MotherQualification" />
+                <ScalarProperty Name="MotherDesignation" ColumnName="MotherDesignation" />
+                <ScalarProperty Name="MotherOccupation" ColumnName="MotherOccupation" />
+                <ScalarProperty Name="FamilyContactNo" ColumnName="FamilyContactNo" />
+                <ScalarProperty Name="FamilyGuardianName" ColumnName="FamilyGuardianName" />
+                <ScalarProperty Name="FamilyEmail" ColumnName="FamilyEmail" />
+                <ScalarProperty Name="FamilyRelationship" ColumnName="FamilyRelationship" />
+                <ScalarProperty Name="FamilyIncomeMonthly" ColumnName="FamilyIncomeMonthly" />
+                <ScalarProperty Name="FatherEmail" ColumnName="FatherEmail" />
+                <ScalarProperty Name="FatherContactNo" ColumnName="FatherContactNo" />
+                <ScalarProperty Name="FatherOfficeAddress" ColumnName="FatherOfficeAddress" />
+                <ScalarProperty Name="FatherIncomeMonthly" ColumnName="FatherIncomeMonthly" />
+                <ScalarProperty Name="FatherQualification" ColumnName="FatherQualification" />
+                <ScalarProperty Name="FatherDesignation" ColumnName="FatherDesignation" />
+                <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+                <ScalarProperty Name="SrNo" ColumnName="SrNo" />
+                <ScalarProperty Name="StEnRCode" ColumnName="StEnRCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentGenaralDetails">
+            <EntityTypeMapping TypeName="CISERPModel.StudentGenaralDetail">
+              <MappingFragment StoreEntitySet="StudentGenaralDetail">
+                <ScalarProperty Name="Withdrwal" ColumnName="Withdrwal" />
+                <ScalarProperty Name="HouseName" ColumnName="HouseName" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Caste" ColumnName="Caste" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="StPerZip" ColumnName="StPerZip" />
+                <ScalarProperty Name="StPerCityId" ColumnName="StPerCityId" />
+                <ScalarProperty Name="StPerStateId" ColumnName="StPerStateId" />
+                <ScalarProperty Name="StPerAddress" ColumnName="StPerAddress" />
+                <ScalarProperty Name="StLocalZip" ColumnName="StLocalZip" />
+                <ScalarProperty Name="StLocalCityId" ColumnName="StLocalCityId" />
+                <ScalarProperty Name="StLocalStateId" ColumnName="StLocalStateId" />
+                <ScalarProperty Name="StLocalAddress" ColumnName="StLocalAddress" />
+                <ScalarProperty Name="PhyStDetail" ColumnName="PhyStDetail" />
+                <ScalarProperty Name="PhyStName" ColumnName="PhyStName" />
+                <ScalarProperty Name="PhysicallDisabledCategory" ColumnName="PhysicallDisabledCategory" />
+                <ScalarProperty Name="SBSection" ColumnName="SBSection" />
+                <ScalarProperty Name="SBClass" ColumnName="SBClass" />
+                <ScalarProperty Name="SBFathersName" ColumnName="SBFathersName" />
+                <ScalarProperty Name="SBStName" ColumnName="SBStName" />
+                <ScalarProperty Name="SBSrNo" ColumnName="SBSrNo" />
+                <ScalarProperty Name="SiblingCategory" ColumnName="SiblingCategory" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SrNo" ColumnName="SrNo" />
+                <ScalarProperty Name="StEnRCode" ColumnName="StEnRCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentOfficialDetails">
+            <EntityTypeMapping TypeName="CISERPModel.StudentOfficialDetail">
+              <MappingFragment StoreEntitySet="StudentOfficialDetails">
+                <ScalarProperty Name="GuardianPassword" ColumnName="GuardianPassword" />
+                <ScalarProperty Name="StudentPassword" ColumnName="StudentPassword" />
+                <ScalarProperty Name="LibraryRequired" ColumnName="LibraryRequired" />
+                <ScalarProperty Name="HouseName" ColumnName="HouseName" />
+                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+                <ScalarProperty Name="OneTwoWay" ColumnName="OneTwoWay" />
+                <ScalarProperty Name="WayAmount" ColumnName="WayAmount" />
+                <ScalarProperty Name="BusLocationName" ColumnName="BusLocationName" />
+                <ScalarProperty Name="TransportRequired" ColumnName="TransportRequired" />
+                <ScalarProperty Name="HostelRequired" ColumnName="HostelRequired" />
+                <ScalarProperty Name="Card" ColumnName="Card" />
+                <ScalarProperty Name="Promotion" ColumnName="Promotion" />
+                <ScalarProperty Name="TypeOFAdmision" ColumnName="TypeOFAdmision" />
+                <ScalarProperty Name="Board" ColumnName="Board" />
+                <ScalarProperty Name="Medium" ColumnName="Medium" />
+                <ScalarProperty Name="Withdrwal" ColumnName="Withdrwal" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="FileNo" ColumnName="FileNo" />
+                <ScalarProperty Name="GroupNa" ColumnName="GroupNa" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="AdmissionForClassId" ColumnName="AdmissionForClassId" />
+                <ScalarProperty Name="DateOfAdmiission" ColumnName="DateOfAdmiission" />
+                <ScalarProperty Name="SrNo" ColumnName="SrNo" />
+                <ScalarProperty Name="StEnRCode" ColumnName="StEnRCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentPreviousSchools">
+            <EntityTypeMapping TypeName="CISERPModel.StudentPreviousSchool">
+              <MappingFragment StoreEntitySet="StudentPreviousSchool">
+                <ScalarProperty Name="Withdrwal" ColumnName="Withdrwal" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Schooladdress" ColumnName="Schooladdress" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Medium" ColumnName="Medium" />
+                <ScalarProperty Name="Board" ColumnName="Board" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="SrNo" ColumnName="SrNo" />
+                <ScalarProperty Name="StEnRCode" ColumnName="StEnRCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentSubjectAllotments">
+            <EntityTypeMapping TypeName="CISERPModel.StudentSubjectAllotment">
+              <MappingFragment StoreEntitySet="StudentSubjectAllotment">
+                <ScalarProperty Name="Groupe" ColumnName="Groupe" />
+                <ScalarProperty Name="Medium" ColumnName="Medium" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SubjectAlloted" ColumnName="SubjectAlloted" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
