@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CISERPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BoardMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BoardName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="BranchTab">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BranchRemark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CasteMaster">
+    <Key>
+      <PropertyRef Name="CasteId" />
+    </Key>
+    <Property Name="CasteId" Type="int" Nullable="false" />
+    <Property Name="CasteName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CasteRemark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CityMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="ClassMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoomNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+    <Property Name="ClassCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CIDOrder" Type="numeric" Precision="4" Scale="0" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Seq" />
+    </Key>
+    <Property Name="Seq" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentFamilyDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FatherOccupation" Type="nvarchar" MaxLength="50" />
+    <Property Name="FatherDesignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="FatherQualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="FatherIncomeMonthly" Type="nvarchar" MaxLength="50" />
+    <Property Name="FatherOfficeAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="FatherContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FatherEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyIncomeMonthly" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyRelationship" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyGuardianName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherOccupation" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherDesignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherQualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherIncomeMonthly" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherOfficeAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="MotherContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+    <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="StudentGenaralDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="smalldatetime" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiblingCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="SBSrNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SBStName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SBFathersName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SBClass" Type="nvarchar" MaxLength="50" />
+    <Property Name="SBSection" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhysicallDisabledCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhyStName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhyStDetail" Type="nvarchar" MaxLength="1000" />
+    <Property Name="StLocalAddress" Type="nvarchar" MaxLength="1000" />
+    <Property Name="StLocalStateId" Type="int" />
+    <Property Name="StLocalCityId" Type="int" />
+    <Property Name="StLocalZip" Type="nvarchar" MaxLength="50" />
+    <Property Name="StPerAddress" Type="nvarchar" MaxLength="1000" />
+    <Property Name="StPerStateId" Type="int" />
+    <Property Name="StPerCityId" Type="int" />
+    <Property Name="StPerZip" Type="nvarchar" MaxLength="50" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+    <Property Name="Religion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="Caste" Type="nvarchar" MaxLength="50" />
+    <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+    <Property Name="HouseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="StudentOfficialDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateOfAdmiission" Type="smalldatetime" />
+    <Property Name="AdmissionForClassId" Type="int" />
+    <Property Name="SectionId" Type="int" />
+    <Property Name="GroupNa" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+    <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+    <Property Name="Medium" Type="nvarchar" MaxLength="50" />
+    <Property Name="Board" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeOFAdmision" Type="nvarchar" MaxLength="50" />
+    <Property Name="Promotion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Card" Type="nvarchar" MaxLength="50" />
+    <Property Name="HostelRequired" Type="nvarchar" MaxLength="50" />
+    <Property Name="TransportRequired" Type="nvarchar" MaxLength="50" />
+    <Property Name="BusLocationName" Type="nvarchar" MaxLength="100" />
+    <Property Name="WayAmount" Type="nvarchar" MaxLength="50" />
+    <Property Name="OneTwoWay" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleType" Type="nvarchar" MaxLength="50" />
+    <Property Name="HouseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LibraryRequired" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudentPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="GuardianPassword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentPreviousSchool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StEnRCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="SrNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="Board" Type="nvarchar" MaxLength="50" />
+    <Property Name="Medium" Type="nvarchar" MaxLength="50" />
+    <Property Name="Class" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromDate" Type="smalldatetime" />
+    <Property Name="ToDate" Type="smalldatetime" />
+    <Property Name="Marks" Type="nvarchar" MaxLength="50" />
+    <Property Name="Percentage" Type="nvarchar" MaxLength="50" />
+    <Property Name="SchoolName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Schooladdress" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+    <Property Name="Withdrwal" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="StudentSubjectAllotment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubjectAlloted" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="SessionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="int" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordDate" Type="smalldatetime" />
+    <Property Name="Medium" Type="nvarchar" MaxLength="50" />
+    <Property Name="Groupe" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="CISERPModelStoreContainer">
+    <EntitySet Name="BoardMaster" EntityType="Self.BoardMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BranchTab" EntityType="Self.BranchTab" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CasteMaster" EntityType="Self.CasteMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CityMaster" EntityType="Self.CityMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassMaster" EntityType="Self.ClassMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentFamilyDetails" EntityType="Self.StudentFamilyDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentGenaralDetail" EntityType="Self.StudentGenaralDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentOfficialDetails" EntityType="Self.StudentOfficialDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentPreviousSchool" EntityType="Self.StudentPreviousSchool" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentSubjectAllotment" EntityType="Self.StudentSubjectAllotment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
