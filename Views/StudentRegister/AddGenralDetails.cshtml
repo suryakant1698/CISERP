@@ -66,8 +66,9 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.StLocalStateId, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.StLocalStateId, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.StLocalStateId, "", new { @class = "text-danger" })
+                            
+                           @Html.DropDownListFor(model=>model.StLocalStateId,ViewBag.CountryList as SelectList,"--Select State--",new {@class="form-control" })
+                             @Html.ValidationMessageFor(model => model.StLocalStateId, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -110,8 +111,8 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Religion, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Religion, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Religion, "", new { @class = "text-danger" })
+                        @Html.DropDownListFor(model=>model.Religion,ViewBag.ReligionList as SelectList,"--Select a religion",new {@class="form-control" })
+                                @Html.ValidationMessageFor(model => model.Religion, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -119,14 +120,15 @@
                         @Html.LabelFor(model => model.Cast, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Cast, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Cast, "", new { @class = "text-danger" })
+                          
+                              @Html.ValidationMessageFor(model => model.Cast, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.DropDownListFor(model=>model.Category,ViewBag.CategoryList as SelectList,"--Select a category--",new { @class="form-control" })
                             @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -142,14 +144,14 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.BloodGroup, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control" } })
+                          @Html.DropDownListFor(model=>model.BloodGroup,ViewBag.BloodGrouplist as SelectList,"--Select  a bloodgroup--",new {@class="form-control" })
                             @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
                 <div style="width:50%;float:right; ">
 <h2>Permanent Address</h2>
-
+                    <input type="checkbox" id="CopyCheckBox" />Same as current address
                     <div class="form-group">
                         @Html.LabelFor(model => model.StPerAddress, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -160,7 +162,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.StPerStateId, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.StPerStateId, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.DropDownListFor(model => model.StPerStateId, ViewBag.CountryList as SelectList, "--Select State--", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.StPerStateId, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -169,10 +171,11 @@
                         @Html.LabelFor(model => model.StPerCityId, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.StPerCityId, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.StPerCityId, "", new { @class = "text-danger" })
+                            
+                              @Html.ValidationMessageFor(model => model.StPerCityId, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         @Html.LabelFor(model => model.StPerZip, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -191,7 +194,22 @@
 
 <div>
 </div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#StPerStateId').change(function () {
+            $.get("/StudentRegister/GetCities", { stateId: $('#StPerStateId').val() }, function (data) {
+                $.each(data, function (index, row) {
+                    $('#StPerCityId').append("<option vlaue='"+row.+"'></option>")
+                })
 
+            });
+        });
+        $('#CopyCheckBox').change(function () {
+            $('#StPerAddress').text = $('#StLocalAddress').val();
+        });
+    });
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

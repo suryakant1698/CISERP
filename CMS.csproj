@@ -232,6 +232,9 @@
     <Compile Include="CountryMaster.cs">
       <DependentUpon>dbmodel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomModels\BloodGroup.cs" />
+    <Compile Include="CustomModels\Category.cs" />
+    <Compile Include="CustomModels\Religion.cs" />
     <Compile Include="dbmodel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -251,6 +254,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DBModels\MasterTablesOperations.cs" />
     <Compile Include="Models\DBModels\StudentGenaralDetailsCustomModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
