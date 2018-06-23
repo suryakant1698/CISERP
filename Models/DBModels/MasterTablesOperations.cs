@@ -18,7 +18,8 @@ namespace CMS.Models.DBModels
         {
             using (CISERPEntities db = new CISERPEntities())
             {
-                return db.CityMasters.Where(a => a.Id == id).ToList();
+                return  db.CityMasters.Where(a => a.StateId == id).ToList();
+                
             }
         }
     }

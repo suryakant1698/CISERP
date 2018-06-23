@@ -28,16 +28,10 @@ namespace CMS.Controllers
         [ActionName("AddGenralDetails")]
         public ActionResult AddGenralDetails_Post(StudetGenaralDetailsCustomModel inputData)
         {
+            var crap = inputData.FirstName;
             return View();
         }
-        public ActionResult Action()
-        {
-            using (CISERPEntities db = new CISERPEntities())
-            {
-
-            }
-            return View();
-        }
+    
         [NonAction]
         public void PopulateViewbags()
         {
@@ -51,7 +45,8 @@ namespace CMS.Controllers
         }
         public JsonResult GetCities(int stateId)
         {
-
+            var cityList = masterReadOperations.getCitiesByStateId(stateId);
+            return Json(cityList,JsonRequestBehavior.AllowGet);
         }
     }
 }
