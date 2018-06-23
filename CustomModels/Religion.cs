@@ -11,7 +11,7 @@ namespace CMS.CustomModels
         public string Name { get; set; }
         public IEnumerable<Religion> GetAllReligions()
         {
-            var list = new List<Religion>{
+            return new List<Religion>{
                 new Religion{Id=1,Name="Hindu", },
                 new Religion {Id=2,Name="Muslim" },
                 new Religion {Id=3,Name="Sikh" },
@@ -19,7 +19,6 @@ namespace CMS.CustomModels
                 new Religion {Id=5,Name="Others" }
 
             };
-            return list;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model CMS.Models.DBModels.StudetGenaralDetailsCustomModel
+﻿@model CMS.Models.DBModels.StudentGenaralDetailsCustomModel
 @{
     ViewBag.Title = "AddGenralDetails";
 }
@@ -203,7 +203,6 @@
                 $.each(data, function (index, row) {
                     $('#StPerCityId').append("<option value='" +row.Id+ "'>" + row.CityName + "</option>")
                 });
-
             });
         });
         $('#StLocalStateId').change(function () {
@@ -216,7 +215,22 @@
             });
         });
         $('#CopyCheckBox').change(function () {
-            $('#StPerAddress').text = $('#StLocalAddress').val();
+            if(($('#CopyCheckBox').prop('checked')))
+            {
+                console.log($('#StLocalAddress').val());
+                $('#StPerAddress').val($('#StLocalAddress').val());
+                $('#StPerZip').val($('#StLocalZip').val());
+                $('#StPerStateId').val($('#StLocalStateId').val());
+                $.get("/StudentRegister/GetCities", { stateId: $('#StPerStateId').val() }, function (data) {
+                    $('#StPerCityId').empty();
+                    $('#StPerCityId').append("<option value='0'>--Select a  city--</option>");
+                    $.each(data, function (index, row) {
+                        $('#StPerCityId').append("<option value='" + row.Id + "'>" + row.CityName + "</option>")
+                    });
+                    $('#StPerCityId').val($('#StLocalCityId').val());
+                });
+                
+            }
         });
     });
 </script>

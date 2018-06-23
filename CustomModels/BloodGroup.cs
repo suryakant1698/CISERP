@@ -11,7 +11,7 @@ namespace CMS.CustomModels
         public string  Name { get; set; }
         public IEnumerable<BloodGroup> GetAllBloodGroups()
         {
-            var list = new List<BloodGroup>
+            return new List<BloodGroup>
             {
                 new BloodGroup {Id=1,Name="O+" },
                 new BloodGroup {Id=2,Name="O-" },
@@ -22,7 +22,7 @@ namespace CMS.CustomModels
                 new BloodGroup {Id=7,Name="AB-" },
                 new BloodGroup {Id=8,Name="AB+" }
             };
-            return list;
+            
         }
     }
 }

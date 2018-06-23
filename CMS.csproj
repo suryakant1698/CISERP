@@ -226,6 +226,7 @@
       <DependentUpon>dbmodel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FamilyDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentRegisterController.cs" />
@@ -234,6 +235,8 @@
     </Compile>
     <Compile Include="CustomModels\BloodGroup.cs" />
     <Compile Include="CustomModels\Category.cs" />
+    <Compile Include="CustomModels\Occupation.cs" />
+    <Compile Include="CustomModels\Relationship.cs" />
     <Compile Include="CustomModels\Religion.cs" />
     <Compile Include="dbmodel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -255,6 +258,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DBModels\MasterTablesOperations.cs" />
+    <Compile Include="Models\DBModels\StudentFamilyDetailsViewModel.cs" />
     <Compile Include="Models\DBModels\StudentGenaralDetailsCustomModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -364,6 +368,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\StudentRegister\AddGenralDetails.cshtml" />
     <Content Include="Views\StudentRegister\Action.cshtml" />
+    <Content Include="Views\FamilyDetails\AddFamilyDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

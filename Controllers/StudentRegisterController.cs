@@ -26,9 +26,11 @@ namespace CMS.Controllers
 
         [HttpPost]
         [ActionName("AddGenralDetails")]
-        public ActionResult AddGenralDetails_Post(StudetGenaralDetailsCustomModel inputData)
+        public ActionResult AddGenralDetails_Post(StudentGenaralDetailsCustomModel inputData)
         {
-            var crap = inputData.FirstName;
+            StudentGenaralDetailsCustomModel dbOperationinstance = new StudentGenaralDetailsCustomModel();
+            dbOperationinstance.SaveNewStudent(inputData);
+            PopulateViewbags();
             return View();
         }
     

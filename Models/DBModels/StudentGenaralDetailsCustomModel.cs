@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CMS.Models.DBModels
 {
-    public class StudetGenaralDetailsCustomModel
+    public class StudentGenaralDetailsCustomModel
     {
         //properties
         #region
@@ -64,6 +64,35 @@ namespace CMS.Models.DBModels
         public string StPerZip { get; set; }
         #endregion
         //methods
+        public void SaveNewStudent(StudentGenaralDetailsCustomModel newData)
+        {
+            using (CISERPEntities db = new CISERPEntities())
+            {
+                StudentGenaralDetail newStudent = new StudentGenaralDetail();
+                newStudent.FirstName = newData.FirstName;
+                newStudent.LastName = newData.LastName;
+                newStudent.Gender = newData.Gender;
+                newStudent.DOB = newData.DateOfBirth;
+                newStudent.BloodGroup = newData.BloodGroup;
+                newStudent.Caste = newData.Cast;
+                newStudent.Category = newData.Category;
+                newStudent.Email = newData.Email;
+                newStudent.MiddleName = newData.MiddleName;
+                newStudent.MobileNumber = newData.MobileNumber;
+                newStudent.Nationality = newData.Nationality;
+                newStudent.Religion = newData.Religion;
+                newStudent.StLocalAddress = newData.StLocalAddress;
+                newStudent.StLocalCityId = newData.StLocalCityId;
+                newStudent.StLocalStateId = newData.StLocalStateId;
+                newStudent.StLocalZip = newData.StLocalZip;
+                newStudent.StPerAddress = newData.StPerAddress;
+                newStudent.StPerCityId = newData.StPerCityId;
+                newStudent.StPerStateId = newData.StPerStateId;
+                newStudent.StPerZip = newData.StPerZip;
 
+                db.StudentGenaralDetails.Add(newStudent);
+                db.SaveChanges();
+            }
+        }
     }
 }
