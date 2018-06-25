@@ -23,7 +23,7 @@ namespace CMS.Models.DBModels
         [Display(Name = "Qualification")]
         public string FatherQualification { get; set; }
         [Required]
-        [Display(Name = "Income (monthly)")]
+        [Display(Name = "Income")]
         public string FatherIncomeMonthly { get; set; }
         [Required]
         [Display(Name = "Office Address")]
@@ -48,8 +48,9 @@ namespace CMS.Models.DBModels
         [Display(Name = "Qualification")]
         public string MotherQualification { get; set; }
         [Required]
-        [Display(Name = "Income (monthly)")]
+        [Display(Name = "Income")]
         public string MotherIncomeMonthly { get; set; }
+
         [Required]
         [Display(Name = "Office Address")]
         public string MotherOfficeAddress { get; set; }
@@ -61,7 +62,7 @@ namespace CMS.Models.DBModels
         [DataType(DataType.EmailAddress)]
         public string MotherEmail { get; set; }
         [Required]
-        [Display(Name = "Family Income (Monthly)")]
+        [Display(Name = "Family ")]
         public string FamilyIncomeMonthly { get; set; }
         [Required]
         [Display(Name = "Guardian's Name")]
@@ -78,5 +79,37 @@ namespace CMS.Models.DBModels
         public string FamilEmail { get; set; }
 
         #endregion
+
+        //methods
+        public void AddFamilyDetails(StudentFamilyDetailsViewModel newData)
+        {
+            StudentFamilyDetail dbInstance = new StudentFamilyDetail();
+            using (CISERPEntities db = new CISERPEntities())
+            {
+                dbInstance.FatherName = newData.FatherName;
+                dbInstance.FatherContactNo = newData.FatherContactNo;
+                dbInstance.FatherDesignation = newData.FatherDesignation;
+                dbInstance.FatherEmail = newData.FatherEmail;
+                dbInstance.FatherIncomeMonthly = newData.FatherIncomeMonthly;
+                dbInstance.FatherOccupation = newData.FatherOccupation;
+                dbInstance.FatherOfficeAddress = newData.FatherOfficeAddress;
+                dbInstance.FatherQualification = newData.FatherQualification;
+                dbInstance.MotherContactNo = newData.MotherContactNo;
+                dbInstance.MotherDesignation = newData.MotherDesignation;
+                dbInstance.MotherIncomeMonthly = newData.MotherIncomeMonthly;
+                dbInstance.MotherName = newData.MotherName;
+                dbInstance.MotherOccupation = newData.MotherOccupation;
+                dbInstance.MotherOfficeAddress = newData.MotherOfficeAddress;
+                dbInstance.MotherQualification = newData.MotherQualification;
+                dbInstance.FamilyEmail = newData.FamilEmail;
+                dbInstance.FamilyGuardianName = newData.FamilyGuardianName;
+                dbInstance.FamilyIncomeMonthly = newData.FamilyIncomeMonthly;
+                dbInstance.FamilyRelationship = newData.FamilyRelaltionship;
+                dbInstance.FatherContactNo = newData.FatherContactNo;
+
+                db.StudentFamilyDetails.Add(dbInstance);
+                db.SaveChanges();
+            }
+        }
     }
 }

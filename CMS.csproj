@@ -226,7 +226,6 @@
       <DependentUpon>dbmodel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FamilyDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentRegisterController.cs" />
@@ -238,6 +237,7 @@
     <Compile Include="CustomModels\Occupation.cs" />
     <Compile Include="CustomModels\Relationship.cs" />
     <Compile Include="CustomModels\Religion.cs" />
+    <Compile Include="CustomModels\Section.cs" />
     <Compile Include="dbmodel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,8 +258,10 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DBModels\MasterTablesOperations.cs" />
+    <Compile Include="Models\DBModels\PreviousSchoolDetailsViewModels.cs" />
     <Compile Include="Models\DBModels\StudentFamilyDetailsViewModel.cs" />
     <Compile Include="Models\DBModels\StudentGenaralDetailsCustomModel.cs" />
+    <Compile Include="Models\DBModels\StudentOfficialDetailsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -367,12 +369,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\StudentRegister\AddGenralDetails.cshtml" />
-    <Content Include="Views\StudentRegister\Action.cshtml" />
-    <Content Include="Views\FamilyDetails\AddFamilyDetails.cshtml" />
+    <Content Include="Views\StudentRegister\FamilyDetails.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\StudentRegister\PreviousSchoolDetails.cshtml" />
+    <Content Include="Views\StudentRegister\OfficialDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\StudentReister\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
